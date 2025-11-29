@@ -1,0 +1,31 @@
+{
+    "HomePage": {
+        "home": "الصفحة الرئيسية",
+        "converter": "المحول",
+        "optimizer": "مُحسِّن",
+        "pdfServices": "خدمات PDF",
+        "imageServices": "خدمات الصور",
+        "imageConverter": "محول الصور",
+        "imageConverterDesc1": "تحويل أي صيغة صورة إلى صيغة أخرى بنفس الجودة",
+        "imageConverterDesc2": "التنسيقات المقبولة: png , jpg , webp , gif",
+        "goToConverter": "انتقل إلى المحول",
+        "heroTitle": "حسّن صورك وحوّل بين مختلف صيغ الصور",
+        "heroDesc": "حوّل، اضغط، وحسّن صورك بكل سهولة — في مكان واحد. أداتنا توفّر تحويلًا سريعًا للصيغ، وضغطًا ذكيًا، وتحسينًا عالي الجودة يساعدك على تقليل حجم الصور دون فقدان الوضوح. مثالية للمطورين والمصممين وكل من يحتاج صورًا أخف وأسرع وأكثر وضوحًا."
+    },
+    "Converter": {
+        "imageConverter": "محول الصور",
+        "uploadImages": "ارفع صورك",
+        "maxFileSize": "الحد الأقصى لحجم الملف 10 ميجابايت",
+        "convertTo": "تحويل إلى",
+        "quality": "الجودة",
+        "sameQuality": "نفس الجودة",
+        "mediumOptimization": "تحسين متوسط",
+        "maxOptimization": "أقصى تحسين",
+        "download": "تحميل",
+        "convert": "تحويل",
+        "convertingWasSuccess": "تم تحويل الصور بنجاح"
+    },
+    "Compressor": {
+        "imageCompressor": "ضاغط الصور"
+    }
+}

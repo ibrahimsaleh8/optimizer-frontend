@@ -1,0 +1,31 @@
+{
+    "HomePage": {
+        "home": "home",
+        "converter": "converter",
+        "optimizer": "optimizer",
+        "pdfServices": "pdf services",
+        "imageServices": "image services",
+        "imageConverter": "Image Converter",
+        "imageConverterDesc1": "Convert any image format to another format with same quality",
+        "imageConverterDesc2": "Accepted Formats: png , jpg , webp , gif",
+        "goToConverter": "Go to converter",
+        "heroTitle": "Optimize Your Images and Convert between images formats",
+        "heroDesc": "Convert, compress, and optimize your images effortlessly — all in one place. Our tool delivers lightning-fast format conversion, smart compression, and high-quality optimization to help you reduce file sizes without losing clarity. Perfect for developers, designers, and anyone who wants faster, lighter, and sharper images."
+    },
+    "Converter": {
+        "imageConverter": "Image Converter",
+        "uploadImages": "Upload Your Images",
+        "maxFileSize": "Max File Size 10 MB",
+        "convertTo": "Convert To",
+        "quality": "Quality",
+        "sameQuality": "Same Quality",
+        "mediumOptimization": "Medium Optimization",
+        "maxOptimization": "Max Optimization",
+        "download": "Download",
+        "convert": "Convert",
+        "convertingWasSuccess": "Images converted successfully"
+    },
+    "Compressor": {
+        "imageCompressor": "Image Compressor"
+    }
+}
