@@ -21,11 +21,11 @@ export default function ServiceCard({
   const local = useLocale();
 
   return (
-    <div className="w-full p-5 rounded-2xl flex flex-col justify-between gap-3 bg-white">
+    <div className="w-full p-5 flex flex-col justify-between gap-3 bg-white rounded-2xl border-2 border-black black-card-shadow">
       {icons}
 
       <div className="flex flex-col gap-3">
-        <p className="text-2xl font-bold">{title}</p>
+        <p className="text-3xl font-bold">{title}</p>
         <div>
           <p>- {description}</p>
           {secondDescription && <p>- {secondDescription}</p>}
@@ -34,14 +34,9 @@ export default function ServiceCard({
 
       <div className="flex justify-end mt-2">
         <Link
-          className="px-6 py-1.5 capitalize group border border-black hover:bg-transparent hover:text-black duration-300 bg-black text-white sm:w-fit w-full rounded-md flex items-center gap-2"
+          className="px-6  py-1.5 capitalize group border border-black hover:bg-transparent hover:text-black duration-300 bg-main-text font-medium rounded-md text-white sm:w-fit w-full flex items-center gap-2"
           href={linkUrl}>
-          {linkTitle}{" "}
-          {local == "ar" ? (
-            <ChevronsLeft className="text-main-text group-hover:text-black duration-300" />
-          ) : (
-            <ChevronsRight className="text-main-text group-hover:text-black duration-300" />
-          )}
+          {linkTitle} {local == "ar" ? <ChevronsLeft /> : <ChevronsRight />}
         </Link>
       </div>
     </div>

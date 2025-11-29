@@ -26,17 +26,17 @@ export default function ConverterAndOptimizer({
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <div className="w-full h-8 bg-black border-2 border-black flex items-center gap-4 p-4">
+        <div className="w-full h-8 bg-black border-2 border-black flex items-center rounded-tl-xl rounded-tr-xl gap-4 p-5 px-6">
           <div className="w-4 h-4 bg-[#E8E557]"></div>
           <div className="w-4 h-4 bg-[#88E28C]"></div>
           <div className="w-4 h-4 bg-[#F96BC9]"></div>
         </div>
 
-        <div className="bg-white relative p-4 border-t-0 text-black w-full h-64 border-2 border-dashed border-soft-border flex flex-col gap-3 items-center justify-center">
+        <div className="bg-white relative p-4 border-t-0 text-black w-full rounded-bl-xl rounded-br-xl h-64 border-2 border-dashed border-soft-border flex flex-col gap-3 items-center justify-center">
           <FolderUp className="w-24 h-24 text-second-black" />
           <label
             htmlFor="upload-image"
-            className="px-6 py-2 bg-main-text text-black black-shadow border-2 border-black font-bold flex items-center gap-1 hover:bg-transparent hover:text-black hover:border-black cursor-pointer duration-300">
+            className="px-6 py-2 bg-main-text rounded-xl text-white black-shadow border-2 border-white font-bold flex items-center gap-1 hover:bg-transparent hover:text-black hover:border-black cursor-pointer duration-300">
             <ImageUp className="w-5 h-5" /> {t("Converter.uploadImages")}
           </label>
           <input
@@ -82,7 +82,7 @@ export default function ConverterAndOptimizer({
                   loading
                 }
                 onClick={HandelConvert}
-                className="w-48 h-10 cursor-pointer border-2 border-black rounded-none">
+                className="w-48 h-10 cursor-pointer border-2 border-main-text bg-main-text rounded-xl">
                 {loading ? (
                   <Spinner className="text-white w-5 h-5" />
                 ) : type == "converter" ? (

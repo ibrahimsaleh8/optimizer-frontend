@@ -2,15 +2,18 @@
     "HomePage": {
         "home": "home",
         "converter": "converter",
-        "optimizer": "optimizer",
+        "optimizer": "compressor",
         "pdfServices": "pdf services",
+        "heroTitle": "Optimize Your Images and Convert between images formats",
+        "heroDesc": "Convert, compress, and optimize your images effortlessly — all in one place. Our tool delivers lightning-fast format conversion, smart compression, and high-quality optimization to help you reduce file sizes without losing clarity. Perfect for developers, designers, and anyone who wants faster, lighter, and sharper images.",
         "imageServices": "image services",
-        "imageConverter": "Image Converter",
+        "imageConverter": "Converter",
         "imageConverterDesc1": "Convert any image format to another format with same quality",
         "imageConverterDesc2": "Accepted Formats: png , jpg , webp , gif",
         "goToConverter": "Go to converter",
-        "heroTitle": "Optimize Your Images and Convert between images formats",
-        "heroDesc": "Convert, compress, and optimize your images effortlessly — all in one place. Our tool delivers lightning-fast format conversion, smart compression, and high-quality optimization to help you reduce file sizes without losing clarity. Perfect for developers, designers, and anyone who wants faster, lighter, and sharper images."
+        "imageCompressor": "Compressor",
+        "imageCompressorDesc1": "Compress your images and optimize the size with full control of compression rate",
+        "goToCompressor": "Go to compressor"
     },
     "Converter": {
         "imageConverter": "Image Converter",

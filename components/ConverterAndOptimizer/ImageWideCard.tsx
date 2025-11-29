@@ -36,13 +36,13 @@ export default function ImageWideCard({
   type,
 }: Props) {
   return (
-    <div className="relative flex md:flex-row flex-col items-center gap-4 flex-wrap justify-between p-4 bg-white text-black">
+    <div className="relative flex md:flex-row flex-col font-medium rounded-xl items-center gap-4 flex-wrap justify-between p-4 bg-white text-black">
       <button
         onClick={() => DeleteImage(imageData.name)}
-        className={`w-4 h-4 flex items-center justify-center bg-red-500 text-white hover:opacity-80  shadow cursor-pointer  absolute ${
+        className={`w-5 h-5 flex items-center justify-center rounded-full bg-red-500 text-white hover:opacity-80  shadow cursor-pointer  absolute ${
           locale == "ar" ? "right-[-5px]" : "left-[-5px]"
         } top-[-5px]`}>
-        <X className="w-3 h-3" />
+        <X className="w-3.5 h-3.5" />
       </button>
 
       <div className="flex md:flex-row flex-col items-center text-center md:text-left gap-3">
@@ -165,7 +165,7 @@ export default function ImageWideCard({
                     imageData.name.split(".")[0]
                   );
                 }}
-                className="bg-main-text text-black cursor-pointer mt-5 min-w-32 flex items-center rounded-none border-2 border-black gap-3 hover:bg-transparent duration-300 ">
+                className="bg-main-text text-white cursor-pointer mt-5 min-w-32 flex items-center rounded-md border-2 border-black gap-3 hover:bg-transparent hover:text-black duration-300 ">
                 {t("Converter.download")} <HardDriveDownload />
               </Button>
             </div>
