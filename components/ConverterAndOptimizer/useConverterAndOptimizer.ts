@@ -3,7 +3,17 @@ import axios from "axios";
 import { BackendApiLink } from "@/lib/variabels";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useEffectEvent, useRef, useState } from "react";
-import { UploadedImagesDataType } from "../page";
+export type UploadedImagesDataType = {
+  name: string;
+  url: string;
+  size: number;
+  convertTo: string | null;
+  image: File;
+  quality: number;
+  isFinished: boolean;
+  downloadLink: string | null;
+  loading: boolean;
+};
 
 async function convertImagesApi(data: FormData): Promise<{
   images: {
@@ -14,8 +24,23 @@ async function convertImagesApi(data: FormData): Promise<{
   const res = await axios.post(`${BackendApiLink}/api/images/convert`, data);
   return res.data;
 }
-export const useConverter = () => {
-  const t = useTranslations("Converter");
+
+async function compressImagesApi(data: FormData): Promise<{
+  images: {
+    name: string;
+    downloadLink: string;
+  }[];
+}> {
+  const res = await axios.post(`${BackendApiLink}/api/images/compress`, data);
+  return res.data;
+}
+
+export const useConverterAndOptimizer = ({
+  type,
+}: {
+  type: "converter" | "compressor";
+}) => {
+  const t = useTranslations();
   const locale = useLocale();
   const [uploadedImages, setUploadedImages] = useState<FileList | null>(null);
   const [uploadedImagesUrl, setUploadedImagesUrl] = useState<
@@ -67,19 +92,19 @@ export const useConverter = () => {
     setUploadedImagesUrl((prev) =>
       prev.map((p) =>
         p.name === imageName
-          ? { ...p, downloadLink, isConverted: true, loading: false }
+          ? { ...p, downloadLink, isFinished: true, loading: false }
           : p
       )
     );
   };
 
   const HandelConvert = async () => {
-    if (uploadedImagesUrl.some((im) => !im.convertTo)) {
+    if (type == "converter" && uploadedImagesUrl.some((im) => !im.convertTo)) {
       ShowToast("Please choose a format to convert", "error");
       return;
     }
 
-    const willConvert = uploadedImagesUrl.filter((img) => !img.isConverted);
+    const willConvert = uploadedImagesUrl.filter((img) => !img.isFinished);
 
     if (willConvert.length === 0) return;
 
@@ -104,25 +129,45 @@ export const useConverter = () => {
           formData.append("images", img.image);
         });
 
-        formData.append(
-          "data",
-          JSON.stringify(
-            chunk.map((img) => ({
-              name: img.name,
-              convertTo: img.convertTo,
-              quality: img.quality,
-            }))
-          )
-        );
+        if (type == "converter") {
+          formData.append(
+            "data",
+            JSON.stringify(
+              chunk.map((img) => ({
+                name: img.name,
+                convertTo: img.convertTo,
+                quality: img.quality,
+              }))
+            )
+          );
+        } else {
+          formData.append(
+            "data",
+            JSON.stringify(
+              chunk.map((img) => ({
+                name: img.name,
+                quality: img.quality,
+              }))
+            )
+          );
+        }
 
-        const res = await convertImagesApi(formData);
+        const res =
+          type == "converter"
+            ? await convertImagesApi(formData)
+            : await compressImagesApi(formData);
 
         res.images.forEach((converted) => {
           HandleImagesAfterConvert(converted.name, converted.downloadLink);
         });
       }
 
-      ShowToast(t("convertingWasSuccess"), "success");
+      ShowToast(
+        type == "converter"
+          ? t("Converter.convertingWasSuccess")
+          : t("Compressor.compressingWasSuccess"),
+        "success"
+      );
     } catch (error) {
       console.log(error);
       if (axios.isAxiosError(error)) {
@@ -153,7 +198,7 @@ export const useConverter = () => {
         size: e.size,
         image: e,
         quality: 100,
-        isConverted: false,
+        isFinished: false,
         downloadLink: null,
         loading: false,
       }));

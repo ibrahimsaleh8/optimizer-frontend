@@ -26,6 +26,9 @@
         "convertingWasSuccess": "Images converted successfully"
     },
     "Compressor": {
-        "imageCompressor": "Image Compressor"
+        "imageCompressor": "Image Compressor",
+        "compressingWasSuccess": "Images compressed successfully",
+        "compressRate": "Compress Rate",
+        "compress": "compress images"
     }
 }

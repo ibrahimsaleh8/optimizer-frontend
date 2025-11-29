@@ -26,6 +26,9 @@
         "convertingWasSuccess": "تم تحويل الصور بنجاح"
     },
     "Compressor": {
-        "imageCompressor": "ضاغط الصور"
+        "imageCompressor": "ضاغط الصور",
+        "compressingWasSuccess": "تم ضغط الصور بنجاح",
+        "compressRate": "معدل الضغط",
+        "compress": "اضغط الصور"
     }
 }
