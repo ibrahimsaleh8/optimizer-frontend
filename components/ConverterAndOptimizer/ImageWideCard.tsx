@@ -35,16 +35,17 @@ export default function ImageWideCard({
   t,
   type,
 }: Props) {
+  console.log("imageData ", imageData.size);
   return (
-    <div className="relative flex md:flex-row flex-col font-medium rounded-xl items-center gap-4 flex-wrap justify-between p-4 bg-white text-black">
+    <div className="relative flex md:flex-row flex-col font-medium  items-center gap-4 flex-wrap justify-between p-4 bg-second-white text-black">
       <button
+        aria-label="Delete Image"
         onClick={() => DeleteImage(imageData.name)}
-        className={`w-5 h-5 flex items-center justify-center rounded-full bg-red-500 text-white hover:opacity-80  shadow cursor-pointer  absolute ${
+        className={`w-4 h-4 flex items-center justify-center  bg-red-500 text-white hover:opacity-80  shadow cursor-pointer  absolute ${
           locale == "ar" ? "right-[-5px]" : "left-[-5px]"
         } top-[-5px]`}>
-        <X className="w-3.5 h-3.5" />
+        <X className="w-3 h-3" />
       </button>
-
       <div className="flex md:flex-row flex-col items-center text-center md:text-left gap-3">
         <img
           src={imageData.url}
@@ -60,10 +61,13 @@ export default function ImageWideCard({
             {imageData.name}
           </p>
           <p className="font-medium">{imageData.name.split(".")[1]}</p>
-          <p>{(imageData.size / 1024).toFixed(1)} KB</p>
+          {imageData.size >= 1000000 ? (
+            <p>{(imageData.size / 1048576).toFixed(2)} MB</p>
+          ) : (
+            <p>{(imageData.size / 1024).toFixed(2)} KB</p>
+          )}
         </div>
       </div>
-
       {type == "converter" ? (
         <>
           {/* Convert to */}
@@ -146,8 +150,7 @@ export default function ImageWideCard({
             />
           </div>
         </div>
-      )}
-
+      )}{" "}
       {/* Download Link */}
       <div className="min-w-32 min-h-14">
         {imageData.loading ? (
@@ -165,7 +168,7 @@ export default function ImageWideCard({
                     imageData.name.split(".")[0]
                   );
                 }}
-                className="bg-main-text text-white cursor-pointer mt-5 min-w-32 flex items-center rounded-md border-2 border-black gap-3 hover:bg-transparent hover:text-black duration-300 ">
+                className="bg-main-text text-black cursor-pointer mt-5 min-w-32 flex items-center rounded-none border-2 border-black gap-3 hover:bg-transparent hover:text-black duration-300 ">
                 {t("Converter.download")} <HardDriveDownload />
               </Button>
             </div>

@@ -24,11 +24,11 @@ export default function SmallHeader({ links }: Props) {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button className="bg-transparent cursor-pointer sm:hidden flex items-center justify-center">
+        <Button className="bg-transparent text-black hover:bg-transparent cursor-pointer sm:hidden flex items-center justify-center">
           <Menu className="w-5! h-5!" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="bg-black text-white border-soft-border">
+      <SheetContent className="border-soft-border">
         <SheetHeader>
           <SheetTitle></SheetTitle>
           <SheetDescription></SheetDescription>
