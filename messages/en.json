@@ -7,6 +7,8 @@
         "heroDesc": "Fast, high-quality file conversion and compression with no hassle. Upload your files and get optimized results in seconds."
     },
     "Converter": {
+        "title": "Convert Images",
+        "description": "Convert your images to any format instantly with high quality",
         "imageConverter": "Image Converter",
         "uploadImages": "Upload Your Images",
         "maxFileSize": "Max File Size 10 MB",
@@ -17,12 +19,18 @@
         "maxOptimization": "Max Optimization",
         "download": "Download",
         "convert": "Convert",
-        "convertingWasSuccess": "Images converted successfully"
+        "convertingWasSuccess": "Images converted successfully",
+        "converterDesc1": "Convert your images instantly to any format you need. Fast, secure, and high-quality conversion right in your browser",
+        "imagesAccepted": "Images formats that accepted: PNG , JPG , WEBP , GIF , AVIF"
     },
     "Compressor": {
+        "title": "Compress Images",
+        "description": "Reduce image size while keeping high quality",
+        "seconDesc": "Adjust the compression rate: lower rates reduce file size but may also reduce image quality",
         "imageCompressor": "Image Compressor",
         "compressingWasSuccess": "Images compressed successfully",
         "compressRate": "Compress Rate",
-        "compress": "compress images"
+        "compress": "compress images",
+        "compressDesc1": "Reduce image size in seconds while keeping excellent quality"
     }
 }

@@ -1,5 +1,5 @@
 "use client";
-import { FolderUp, ImageUp } from "lucide-react";
+import { FolderUp, ImageUp, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { useConverterAndOptimizer } from "./useConverterAndOptimizer";
@@ -59,6 +59,12 @@ export default function ConverterAndOptimizer({
       <div>
         {uploadedImagesUrl.length > 0 && (
           <div className="flex flex-col gap-5">
+            {type == "compressor" && (
+              <p className="text-main-text font-bold bg-black w-fit flex items-center gap-2 px-4 py-2">
+                <TriangleAlert />
+                {t("Compressor.seconDesc")}
+              </p>
+            )}
             {uploadedImagesUrl.map((image, i) => (
               <ImageWideCard
                 ChangeConvertTo={ChangeConvertTo}
@@ -82,7 +88,7 @@ export default function ConverterAndOptimizer({
                   loading
                 }
                 onClick={HandelConvert}
-                className="w-48 h-10 cursor-pointer border-2 border-black bg-black rounded-none">
+                className="w-48 h-10 capitalize font-bold cursor-pointer border-2 border-black bg-black rounded-none">
                 {loading ? (
                   <Spinner className="text-white w-5 h-5" />
                 ) : type == "converter" ? (

@@ -37,19 +37,19 @@ export default function ImageWideCard({
 }: Props) {
   console.log("imageData ", imageData.size);
   return (
-    <div className="relative flex md:flex-row flex-col font-medium  items-center gap-4 flex-wrap justify-between p-4 bg-second-white text-black">
+    <div className="relative flex md:flex-row flex-col font-medium  items-center gap-4 flex-wrap justify-between p-4 bg-[#f8fafc] border border-soft-border text-black">
       <button
         aria-label="Delete Image"
         onClick={() => DeleteImage(imageData.name)}
         className={`w-4 h-4 flex items-center justify-center  bg-red-500 text-white hover:opacity-80  shadow cursor-pointer  absolute ${
           locale == "ar" ? "right-[-5px]" : "left-[-5px]"
-        } top-[-5px]`}>
+        } -top-2`}>
         <X className="w-3 h-3" />
       </button>
-      <div className="flex md:flex-row flex-col items-center text-center md:text-left gap-3">
+      <div className="flex items-center flex-wrap text-center md:text-left gap-3">
         <img
           src={imageData.url}
-          className="w-28"
+          className="w-28 border"
           alt={imageData.name}
           title={imageData.name}
         />
@@ -71,7 +71,7 @@ export default function ImageWideCard({
       {type == "converter" ? (
         <>
           {/* Convert to */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 md:w-fit w-full">
             <label
               className="text-sm font-medium"
               htmlFor={`convert-to-${index}`}>
@@ -83,12 +83,14 @@ export default function ImageWideCard({
               }}>
               <SelectTrigger
                 id={`convert-to-${index}`}
-                className="sm:w-[180px] w-full">
+                className="md:w-[180px] w-full">
                 <SelectValue placeholder={t("Converter.convertTo")} />
               </SelectTrigger>
               <SelectContent>
                 {imageFormats
-                  .filter((f) => f != imageData.name.split(".")[1])
+                  .filter(
+                    (f) => f != imageData.name.split(".")[1].toLowerCase()
+                  )
                   .map((format, i) => (
                     <SelectItem key={i} value={format}>
                       {format}
@@ -99,7 +101,7 @@ export default function ImageWideCard({
           </div>
 
           {/* Quality */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 md:w-fit w-full">
             <label className="text-sm font-medium" htmlFor={`quailty-${index}`}>
               {t("Converter.quality")}:
             </label>
@@ -110,7 +112,7 @@ export default function ImageWideCard({
               }}>
               <SelectTrigger
                 id={`quailty-${index}`}
-                className="sm:w-[180px] w-full">
+                className="md:w-[180px] w-full">
                 <SelectValue placeholder="Convert To" />
               </SelectTrigger>
               <SelectContent>

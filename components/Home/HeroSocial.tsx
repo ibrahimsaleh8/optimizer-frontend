@@ -10,7 +10,7 @@ import { motion } from "motion/react";
 
 export default function HeroSocial() {
   return (
-    <div className="flex gap-16 justify-center py-10">
+    <div className="flex gap-10 justify-center flex-wrap py-10">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -18,7 +18,8 @@ export default function HeroSocial() {
         <Tooltip>
           <TooltipTrigger>
             <a
-              href="#"
+              target="_blank"
+              href="https://my-portfolio-flax-seven-12.vercel.app/"
               className="w-11 h-11 flex items-center border-2 border-black hover:bg-transparent hover:text-black duration-500 justify-center bg-black text-white">
               <User />
             </a>
@@ -36,7 +37,8 @@ export default function HeroSocial() {
         <Tooltip>
           <TooltipTrigger>
             <a
-              href="#"
+              target="_blank"
+              href="https://www.facebook.com/ibrahim7saleh/"
               className="w-11 h-11 flex items-center border-2 border-black hover:bg-transparent hover:text-black duration-500 justify-center bg-black text-white">
               <Facebook />
             </a>
@@ -54,7 +56,8 @@ export default function HeroSocial() {
         <Tooltip>
           <TooltipTrigger>
             <a
-              href="#"
+              target="_blank"
+              href="https://www.linkedin.com/in/ibrahim-saleh-dev/"
               className="w-11 h-11 flex items-center border-2 border-black hover:bg-transparent hover:text-black duration-500 justify-center bg-black text-white">
               <Linkedin />
             </a>
@@ -72,7 +75,8 @@ export default function HeroSocial() {
         <Tooltip>
           <TooltipTrigger>
             <a
-              href="#"
+              target="_blank"
+              href="https://github.com/ibrahimsaleh8"
               className="w-11 h-11 flex items-center border-2 border-black hover:bg-transparent hover:text-black duration-500 justify-center bg-black text-white">
               <Github />{" "}
             </a>
