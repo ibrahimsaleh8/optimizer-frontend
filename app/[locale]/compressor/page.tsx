@@ -41,7 +41,7 @@ export default async function CompressorPage() {
             {t("Compressor.imageCompressor")}
           </h1>
           <p className="text-lg pl-5">{t("Compressor.compressDesc1")}</p>
-          <p className="text-lg pl-5">{t("Converter.imagesAccepted")}</p>
+          <p className="text-lg pl-5">{t("Compressor.imagesAccepted")}</p>
         </div>
 
         <ConverterAndOptimizer type="compressor" />

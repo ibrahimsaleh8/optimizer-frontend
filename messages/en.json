@@ -31,6 +31,7 @@
         "compressingWasSuccess": "Images compressed successfully",
         "compressRate": "Compress Rate",
         "compress": "compress images",
-        "compressDesc1": "Reduce image size in seconds while keeping excellent quality"
+        "compressDesc1": "Reduce image size in seconds while keeping excellent quality",
+        "imagesAccepted": "Images formats that accepted: PNG , JPG , WEBP , AVIF"
     }
 }

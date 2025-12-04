@@ -31,6 +31,7 @@
         "compressingWasSuccess": "تم ضغط الصور بنجاح",
         "compressRate": "معدل الضغط",
         "compress": "اضغط الصور",
-        "compressDesc1": "قلّل حجم الصورة في ثوانٍ مع الحفاظ على جودة ممتازة"
+        "compressDesc1": "قلّل حجم الصورة في ثوانٍ مع الحفاظ على جودة ممتازة",
+        "imagesAccepted": "الصيغ المدعومة: PNG، JPG، WEBP،  AVIF"
     }
 }

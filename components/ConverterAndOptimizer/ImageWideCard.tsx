@@ -35,7 +35,6 @@ export default function ImageWideCard({
   t,
   type,
 }: Props) {
-  console.log("imageData ", imageData.size);
   return (
     <div className="relative flex md:flex-row flex-col font-medium  items-center gap-4 flex-wrap justify-between p-4 bg-[#f8fafc] border border-soft-border text-black">
       <button
@@ -130,7 +129,7 @@ export default function ImageWideCard({
           </div>
         </>
       ) : (
-        <div className="w-48 flex flex-col gap-3">
+        <div className="md:w-48 w-full flex flex-col gap-3">
           <div className="flex flex-col items-start gap-2">
             <label
               className="text-sm font-medium"
@@ -170,8 +169,19 @@ export default function ImageWideCard({
                     imageData.name.split(".")[0]
                   );
                 }}
-                className="bg-main-text text-black cursor-pointer mt-5 min-w-32 flex items-center rounded-none border-2 border-black gap-3 hover:bg-transparent hover:text-black duration-300 ">
-                {t("Converter.download")} <HardDriveDownload />
+                className="bg-main-text text-black cursor-pointer mt-5 min-w-32 flex items-center rounded-none border-2 border-black gap-3 hover:bg-transparent hover:text-black duration-300 h-auto">
+                <span className="flex items-center gap-2">
+                  {t("Converter.download")} <HardDriveDownload />
+                </span>
+                {imageData.sizeForDownload >= 1000000 ? (
+                  <span>
+                    {(imageData.sizeForDownload / 1048576).toFixed(2)} MB
+                  </span>
+                ) : (
+                  <span>
+                    {(imageData.sizeForDownload / 1024).toFixed(2)} KB
+                  </span>
+                )}
               </Button>
             </div>
           )

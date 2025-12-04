@@ -48,7 +48,11 @@ export default function ConverterAndOptimizer({
               }
             }}
             type="file"
-            accept=".png, .jpg, .jpeg, .webp, .gif"
+            accept={
+              type == "compressor"
+                ? ".png, .jpg, .jpeg, .webp"
+                : ".png, .jpg, .jpeg, .webp, .gif"
+            }
             className="hidden"
             id="upload-image"
           />

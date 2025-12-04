@@ -13,23 +13,24 @@ export type UploadedImagesDataType = {
   isFinished: boolean;
   downloadLink: string | null;
   loading: boolean;
+  sizeForDownload: number;
+};
+
+type ImagesServerResponse = {
+  name: string;
+  downloadLink: string;
+  size: number;
 };
 
 async function convertImagesApi(data: FormData): Promise<{
-  images: {
-    name: string;
-    downloadLink: string;
-  }[];
+  images: ImagesServerResponse[];
 }> {
   const res = await axios.post(`${BackendApiLink}/api/images/convert`, data);
   return res.data;
 }
 
 async function compressImagesApi(data: FormData): Promise<{
-  images: {
-    name: string;
-    downloadLink: string;
-  }[];
+  images: ImagesServerResponse[];
 }> {
   const res = await axios.post(`${BackendApiLink}/api/images/compress`, data);
   return res.data;
@@ -87,12 +88,19 @@ export const useConverterAndOptimizer = ({
 
   const HandleImagesAfterConvert = (
     imageName: string,
-    downloadLink: string
+    downloadLink: string,
+    sizeForDownload: number
   ) => {
     setUploadedImagesUrl((prev) =>
       prev.map((p) =>
         p.name === imageName
-          ? { ...p, downloadLink, isFinished: true, loading: false }
+          ? {
+              ...p,
+              downloadLink,
+              isFinished: true,
+              loading: false,
+              sizeForDownload,
+            }
           : p
       )
     );
@@ -158,7 +166,11 @@ export const useConverterAndOptimizer = ({
             : await compressImagesApi(formData);
 
         res.images.forEach((converted) => {
-          HandleImagesAfterConvert(converted.name, converted.downloadLink);
+          HandleImagesAfterConvert(
+            converted.name,
+            converted.downloadLink,
+            converted.size
+          );
         });
       }
 
@@ -201,6 +213,7 @@ export const useConverterAndOptimizer = ({
         isFinished: false,
         downloadLink: null,
         loading: false,
+        sizeForDownload: 0,
       }));
     setImagesUrl(urls);
   }, [uploadedImages, uploadedImagesUrl]);
