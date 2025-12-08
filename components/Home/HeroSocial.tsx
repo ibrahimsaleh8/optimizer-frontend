@@ -18,6 +18,7 @@ export default function HeroSocial() {
         <Tooltip>
           <TooltipTrigger>
             <a
+              aria-label="Protfolio"
               target="_blank"
               href="https://my-portfolio-flax-seven-12.vercel.app/"
               className="w-11 h-11 flex items-center border-2 border-black hover:bg-transparent hover:text-black duration-500 justify-center bg-black text-white">
@@ -37,6 +38,7 @@ export default function HeroSocial() {
         <Tooltip>
           <TooltipTrigger>
             <a
+              aria-label="Facebook"
               target="_blank"
               href="https://www.facebook.com/ibrahim7saleh/"
               className="w-11 h-11 flex items-center border-2 border-black hover:bg-transparent hover:text-black duration-500 justify-center bg-black text-white">
@@ -56,6 +58,7 @@ export default function HeroSocial() {
         <Tooltip>
           <TooltipTrigger>
             <a
+              aria-label="Linkedin"
               target="_blank"
               href="https://www.linkedin.com/in/ibrahim-saleh-dev/"
               className="w-11 h-11 flex items-center border-2 border-black hover:bg-transparent hover:text-black duration-500 justify-center bg-black text-white">
@@ -75,6 +78,7 @@ export default function HeroSocial() {
         <Tooltip>
           <TooltipTrigger>
             <a
+              aria-label="Github"
               target="_blank"
               href="https://github.com/ibrahimsaleh8"
               className="w-11 h-11 flex items-center border-2 border-black hover:bg-transparent hover:text-black duration-500 justify-center bg-black text-white">

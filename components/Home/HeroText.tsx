@@ -8,7 +8,7 @@ export default function HeroText() {
   return (
     <>
       <TypingAnimation
-        className="font-bold md:text-7xl sm:text-5xl text-4xl"
+        className="font-bold md:text-7xl sm:text-5xl text-3xl"
         as={"p"}>
         {t("heroTitle")}
       </TypingAnimation>

@@ -2,12 +2,14 @@
 
 import { ArrowRightLeft, Minimize2 } from "lucide-react";
 import { motion } from "motion/react";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 type Props = {
   converter: string;
   optimizer: string;
 };
 export default function HeroLinks({ converter, optimizer }: Props) {
+  const local = useLocale();
   return (
     <div className="flex items-center gap-10 flex-wrap justify-center mt-3">
       <motion.div
@@ -17,7 +19,7 @@ export default function HeroLinks({ converter, optimizer }: Props) {
         className="w-fit">
         <Link
           className="px-8 capitalize hover:bg-black hover:text-white duration-300 black-shadow py-4 flex items-center justify-center gap-3 bg-white text-black border-3 border-black w-52 font-bold"
-          href={"/converter"}>
+          href={`/${local}/converter`}>
           <ArrowRightLeft className="w-5 h-5" />
           {converter}
         </Link>
@@ -29,7 +31,7 @@ export default function HeroLinks({ converter, optimizer }: Props) {
         className="w-fit">
         <Link
           className="px-8 capitalize hover:bg-black hover:text-white duration-300 black-shadow py-4 flex items-center justify-center gap-3 bg-white text-black border-3 border-black w-52 font-bold"
-          href={"/compressor"}>
+          href={`/${local}/compressor`}>
           <Minimize2 className="w-5 h-5" />
           {optimizer}
         </Link>

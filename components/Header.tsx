@@ -1,22 +1,23 @@
 import Link from "next/link";
 import LanguagesToggle from "./LanguagesToggle";
 import SmallHeader from "./SmallHeader";
-import { getTranslations } from "next-intl/server";
-
+import { getTranslations, getLocale } from "next-intl/server";
+import logo from "@/public/images/logo.webp";
+import Image from "next/image";
 export default async function Header() {
   const t = await getTranslations("HomePage");
-
+  const local = await getLocale();
   const links = [
     {
-      url: "/",
+      url: `/${local}`,
       title: t("home"),
     },
     {
-      url: "/converter",
+      url: `/${local}/converter`,
       title: t("converter"),
     },
     {
-      url: "/compressor",
+      url: `/${local}/compressor`,
       title: t("optimizer"),
     },
   ];
@@ -24,8 +25,8 @@ export default async function Header() {
   return (
     <header className="w-full p-5 bg-transparent text-black font-medium border-b border-soft-border">
       <div className="container mx-auto flex items-center justify-between w-full gap-4">
-        <Link href={"/"} className="font-bold text-2xl uppercase">
-          Optimizer
+        <Link href={`/${local}`} className="font-bold text-2xl uppercase">
+          <Image src={logo} alt="LOGO" className="w-32" />
         </Link>
 
         <nav className="flex items-center">

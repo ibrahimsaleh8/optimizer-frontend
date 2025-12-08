@@ -24,7 +24,9 @@ export default function SmallHeader({ links }: Props) {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button className="bg-transparent text-black hover:bg-transparent cursor-pointer sm:hidden flex items-center justify-center">
+        <Button
+          aria-label="open links"
+          className="bg-transparent text-black hover:bg-transparent cursor-pointer sm:hidden flex items-center justify-center">
           <Menu className="w-5! h-5!" />
         </Button>
       </SheetTrigger>

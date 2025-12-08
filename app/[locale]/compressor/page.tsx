@@ -35,13 +35,15 @@ export default async function CompressorPage() {
         }}
       />
       <div className="container mx-auto py-10 px-3 sm:px-1 flex flex-col gap-6 relative">
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-4">
           <h1 className="text-4xl font-bold flex items-center gap-2">
             <Minimize2 className="w-5 h-5" />
             {t("Compressor.imageCompressor")}
           </h1>
-          <p className="text-lg pl-5">{t("Compressor.compressDesc1")}</p>
-          <p className="text-lg pl-5">{t("Compressor.imagesAccepted")}</p>
+          <ul className="text-lg pl-5 flex flex-col gap-3 list-disc font-medium px-7">
+            <li>{t("Compressor.compressDesc1")}</li>
+            <li>{t("Compressor.imagesAccepted")}</li>
+          </ul>
         </div>
 
         <ConverterAndOptimizer type="compressor" />

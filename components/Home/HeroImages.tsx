@@ -1,9 +1,9 @@
 "use client";
-import pngIcon from "@/icons/PNG.png";
-import jpgIcon from "@/icons/JPG.png";
-import gifIcon from "@/icons/GIF.png";
-import webpIcon from "@/icons/WEBP.png";
-import avifIcon from "@/icons/avif.png";
+import pngIcon from "@/icons/PNG.webp";
+import jpgIcon from "@/icons/JPG.webp";
+import gifIcon from "@/icons/GIF.webp";
+import webpIcon from "@/icons/WEBP.webp";
+import avifIcon from "@/icons/avif.webp";
 import { ArrowRightLeft } from "lucide-react";
 import Image from "next/image";
 import { motion } from "motion/react";

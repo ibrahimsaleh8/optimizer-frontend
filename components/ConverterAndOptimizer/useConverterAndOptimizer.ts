@@ -22,16 +22,14 @@ type ImagesServerResponse = {
   size: number;
 };
 
-async function convertImagesApi(data: FormData): Promise<{
-  images: ImagesServerResponse[];
-}> {
+async function convertImagesApi(data: FormData): Promise<ImagesServerResponse> {
   const res = await axios.post(`${BackendApiLink}/api/images/convert`, data);
   return res.data;
 }
 
-async function compressImagesApi(data: FormData): Promise<{
-  images: ImagesServerResponse[];
-}> {
+async function compressImagesApi(
+  data: FormData
+): Promise<ImagesServerResponse> {
   const res = await axios.post(`${BackendApiLink}/api/images/compress`, data);
   return res.data;
 }
@@ -120,8 +118,8 @@ export const useConverterAndOptimizer = ({
 
     try {
       const chunks: UploadedImagesDataType[][] = [];
-      for (let i = 0; i < willConvert.length; i += 2) {
-        chunks.push(willConvert.slice(i, i + 2));
+      for (let i = 0; i < willConvert.length; i += 1) {
+        chunks.push(willConvert.slice(i, i + 1));
       }
 
       for (const chunk of chunks) {
@@ -134,29 +132,25 @@ export const useConverterAndOptimizer = ({
         const formData = new FormData();
 
         chunk.forEach((img) => {
-          formData.append("images", img.image);
+          formData.append("image", img.image);
         });
 
         if (type == "converter") {
           formData.append(
             "data",
-            JSON.stringify(
-              chunk.map((img) => ({
-                name: img.name,
-                convertTo: img.convertTo,
-                quality: img.quality,
-              }))
-            )
+            JSON.stringify({
+              name: chunk[0].name,
+              convertTo: chunk[0].convertTo,
+              quality: chunk[0].quality,
+            })
           );
         } else {
           formData.append(
             "data",
-            JSON.stringify(
-              chunk.map((img) => ({
-                name: img.name,
-                quality: img.quality,
-              }))
-            )
+            JSON.stringify({
+              name: chunk[0].name,
+              quality: chunk[0].quality,
+            })
           );
         }
 
@@ -165,13 +159,7 @@ export const useConverterAndOptimizer = ({
             ? await convertImagesApi(formData)
             : await compressImagesApi(formData);
 
-        res.images.forEach((converted) => {
-          HandleImagesAfterConvert(
-            converted.name,
-            converted.downloadLink,
-            converted.size
-          );
-        });
+        HandleImagesAfterConvert(res.name, res.downloadLink, res.size);
       }
 
       ShowToast(

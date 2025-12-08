@@ -33,5 +33,10 @@
         "compress": "اضغط الصور",
         "compressDesc1": "قلّل حجم الصورة في ثوانٍ مع الحفاظ على جودة ممتازة",
         "imagesAccepted": "الصيغ المدعومة: PNG، JPG، WEBP،  AVIF"
+    },
+    "NotFound": {
+        "notFoundPage": "صفحة غير موجودة",
+        "can'tFind": "لا يمكن العثور على الصفحة المطلوب",
+        "returnHome": "العودة إلى الصفحة الرئيسية"
     }
 }
