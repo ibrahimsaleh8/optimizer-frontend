@@ -38,5 +38,10 @@
         "notFoundPage": "Not Found Page",
         "can'tFind": "Could not find requested resource",
         "returnHome": "Return Home"
+    },
+    "RefreshTheServer": {
+        "wakeingUpServer": "Waking up the server ...",
+        "takeTime": "This may take 30–60 seconds because the backend is deployed on Render free tier",
+        "messageDisapper": "Once this message disappears, everything is ready ✔"
     }
 }

@@ -2,6 +2,7 @@ import { Minimize2 } from "lucide-react";
 import ConverterAndOptimizer from "@/components/ConverterAndOptimizer/ConverterAndOptimizer";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
+import CheckServerIsReady from "@/components/CheckServerIsReady";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Compressor");
@@ -45,6 +46,7 @@ export default async function CompressorPage() {
             <li>{t("Compressor.imagesAccepted")}</li>
           </ul>
         </div>
+        <CheckServerIsReady />
 
         <ConverterAndOptimizer type="compressor" />
       </div>

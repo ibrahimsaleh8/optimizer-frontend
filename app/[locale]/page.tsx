@@ -27,6 +27,7 @@ export default async function Home() {
             "radial-gradient(ellipse 70% 60% at 50% 100%, #000 60%, transparent 100%)",
         }}
       />
+
       <div className="w-full container mx-auto pt-4 relative">
         <div className="w-full md:p-4 px-2 py-10 flex gap-16 text-black">
           <div className="w-full flex  justify-center items-center text-center flex-col gap-12">

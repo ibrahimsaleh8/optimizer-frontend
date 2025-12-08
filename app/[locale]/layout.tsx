@@ -6,6 +6,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { Toaster } from "@/components/ui/sonner";
+import ReactQueryProvider from "@/components/ReactQueryProvider";
 
 const font = Cairo({
   subsets: ["latin"],
@@ -37,7 +38,7 @@ export default async function RootLayout({
         className={`${font.className} antialiased `}>
         <NextIntlClientProvider>
           <Header />
-          {children}
+          <ReactQueryProvider> {children}</ReactQueryProvider>
           <Toaster
             closeButton={true}
             position={locale == "ar" ? "bottom-left" : "bottom-right"}
