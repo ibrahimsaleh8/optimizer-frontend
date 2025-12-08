@@ -1,4 +1,3 @@
-import CheckServerIsReady from "@/components/CheckServerIsReady";
 import ConverterAndOptimizer from "@/components/ConverterAndOptimizer/ConverterAndOptimizer";
 import { Repeat } from "lucide-react";
 import { Metadata } from "next";
@@ -47,8 +46,6 @@ export default async function ConverterPage() {
             <li>{t("imagesAccepted")}</li>
           </ul>
         </div>
-
-        <CheckServerIsReady />
 
         <ConverterAndOptimizer type="converter" />
       </div>
