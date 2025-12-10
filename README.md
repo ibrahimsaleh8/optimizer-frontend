@@ -10,6 +10,15 @@ Built with **Next.js**, **React**, **Tailwind CSS**, and **Shadcn UI** — Optim
 🚀 **Try Optimo here:**  
 https://optimizer-frontend.vercel.app/
 
+---
+
+## 🗄️ Backend Repository
+
+🔧 **Backend Repo:**  
+https://github.com/ibrahimsaleh8/optimo-backend
+
+---
+
 ## 🚀 Features
 
 ### 🔄 Image Format Conversion
@@ -47,3 +56,15 @@ Compress images while controlling the quality level:
 | **React**        | UI components                 |
 | **Tailwind CSS** | Styling & responsive design   |
 | **Shadcn UI**    | UI components library         |
+
+---
+
+## 🧰 Backend Technologies
+
+| Technology     | Usage                          |
+| -------------- | ------------------------------ |
+| **Node.js**    | Backend runtime environment    |
+| **Express.js** | API routing & server logic     |
+| **Sharp.js**   | Image conversion & compression |
+
+---
