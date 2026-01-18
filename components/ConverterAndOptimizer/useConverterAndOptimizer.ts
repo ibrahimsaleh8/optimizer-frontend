@@ -28,7 +28,7 @@ async function convertImagesApi(data: FormData): Promise<ImagesServerResponse> {
 }
 
 async function compressImagesApi(
-  data: FormData
+  data: FormData,
 ): Promise<ImagesServerResponse> {
   const res = await axios.post(`${BackendApiLink}/api/images/compress`, data);
   return res.data;
@@ -74,20 +74,20 @@ export const useConverterAndOptimizer = ({
 
   const ChangeConvertTo = (imageName: string, convertTo: string) => {
     setUploadedImagesUrl((prev) =>
-      prev.map((p) => (p.name === imageName ? { ...p, convertTo } : p))
+      prev.map((p) => (p.name === imageName ? { ...p, convertTo } : p)),
     );
   };
 
   const changeQuality = (imageName: string, quality: number) => {
     setUploadedImagesUrl((prev) =>
-      prev.map((p) => (p.name === imageName ? { ...p, quality } : p))
+      prev.map((p) => (p.name === imageName ? { ...p, quality } : p)),
     );
   };
 
   const HandleImagesAfterConvert = (
     imageName: string,
     downloadLink: string,
-    sizeForDownload: number
+    sizeForDownload: number,
   ) => {
     setUploadedImagesUrl((prev) =>
       prev.map((p) =>
@@ -99,8 +99,8 @@ export const useConverterAndOptimizer = ({
               loading: false,
               sizeForDownload,
             }
-          : p
-      )
+          : p,
+      ),
     );
   };
 
@@ -125,8 +125,8 @@ export const useConverterAndOptimizer = ({
       for (const chunk of chunks) {
         setUploadedImagesUrl((prev) =>
           prev.map((p) =>
-            chunk.some((c) => c.name === p.name) ? { ...p, loading: true } : p
-          )
+            chunk.some((c) => c.name === p.name) ? { ...p, loading: true } : p,
+          ),
         );
 
         const formData = new FormData();
@@ -142,7 +142,7 @@ export const useConverterAndOptimizer = ({
               name: chunk[0].name,
               convertTo: chunk[0].convertTo,
               quality: chunk[0].quality,
-            })
+            }),
           );
         } else {
           formData.append(
@@ -150,7 +150,7 @@ export const useConverterAndOptimizer = ({
             JSON.stringify({
               name: chunk[0].name,
               quality: chunk[0].quality,
-            })
+            }),
           );
         }
 
@@ -166,7 +166,7 @@ export const useConverterAndOptimizer = ({
         type == "converter"
           ? t("Converter.convertingWasSuccess")
           : t("Compressor.compressingWasSuccess"),
-        "success"
+        "success",
       );
     } catch (error) {
       console.log(error);
@@ -189,7 +189,7 @@ export const useConverterAndOptimizer = ({
       .filter(
         (im) =>
           im.size <= 10 * 1024 * 1024 &&
-          !uploadedImagesUrl.some((img) => img.name === im.name)
+          !uploadedImagesUrl.some((img) => img.name === im.name),
       )
       .map((e) => ({
         url: URL.createObjectURL(e),

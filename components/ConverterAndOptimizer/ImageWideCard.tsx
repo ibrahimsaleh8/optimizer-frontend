@@ -88,7 +88,7 @@ export default function ImageWideCard({
               <SelectContent>
                 {imageFormats
                   .filter(
-                    (f) => f != imageData.name.split(".")[1].toLowerCase()
+                    (f) => f != imageData.name.split(".")[1].toLowerCase(),
                   )
                   .map((format, i) => (
                     <SelectItem key={i} value={format}>
@@ -141,7 +141,7 @@ export default function ImageWideCard({
               type="number"
               placeholder={t("Compressor.compressRate")}
               min={1}
-              defaultValue={70}
+              defaultValue={100}
               max={100}
               maxLength={3}
               onChange={(e) => {
@@ -166,7 +166,7 @@ export default function ImageWideCard({
                 onClick={() => {
                   saveAs(
                     imageData.downloadLink as string,
-                    imageData.name.split(".")[0]
+                    imageData.name.split(".")[0],
                   );
                 }}
                 className="bg-main-text text-black cursor-pointer mt-5 min-w-32 flex items-center rounded-none border-2 border-black gap-3 hover:bg-transparent hover:text-black duration-300 h-auto">
